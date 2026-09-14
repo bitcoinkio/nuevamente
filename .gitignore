@@ -56,3 +56,4 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+data/oci_local_storage/
