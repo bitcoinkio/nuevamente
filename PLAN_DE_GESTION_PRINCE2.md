@@ -1,123 +1,148 @@
 # Documento de Iniciación y Gestión del Proyecto (PID) — "NuevaMente"
-## Marco Metodológico: PRINCE2 / PRINCE2 Agile
+## Marco Metodológico: PRINCE2 / PRINCE2 Agile Adaptado
 **Proyecto:** Sistema Inteligente de Adaptación y Generación de Contenido Educativo  
 **Programa:** Hackathon No Country — Oracle Next Education (ONE G10)  
-**Versión:** 1.1 (Estado: *Documento Vivo / En Perfeccionamiento Continuo*)  
+**Versión:** 2.0 (Estado: *Documento Vivo / En Perfeccionamiento Continuo*)  
 **Fecha de Emisión:** 14 de Septiembre de 2026  
 
 ---
 
 > [!NOTE]
 > ### 📜 Declaración de "Documento Vivo" (Living Document Clause)
-> El presente Plan de Implementación y Gestión no es un contrato estático ni definitivo. Se concibe bajo la filosofía PRINCE2 Agile como **"letra viva"**: un artefacto dinámico que se revisará, ajustará y perfeccionará formalmente al cierre de cada fase de gestión (Sprint). Cualquier miembro del equipo puede proponer ajustes al Business Case, a las tolerancias o a las alternativas técnicas mediante el proceso de control de cambios acordado con el Project Manager.
+> El presente Plan de Gestión no es un contrato rígido ni definitivo. En conformidad con PRINCE2 Agile, este artefacto es **"letra viva"**: un marco dinámico que se enriquece, evalúa y perfecciona semana a semana durante el cierre de cada Sprint (Fase de Gestión). El equipo tiene la potestad de proponer ajustes a los canales, dinámicas operativas y arquitecturas técnicas en las ceremonias de retrospectiva.
 
 ---
 
-## 1. Estructura de Organización y Gobernanza del Proyecto (Roles PRINCE2)
+## 1. Gobernanza Democrática por Dimensiones y Organización del Equipo
+
+Para garantizar una gestión ágil, transparente y horizontal, la gobernanza del proyecto no se basa en jerarquías impuestas, sino en un **Project Board Colegiado y Democrático estructurado por 5 Dimensiones Técnicas**, coordinado desde la cúspide por el Project Manager.
 
 ```text
-┌────────────────────────────────────────────────────────────────────────┐
-│                        PROJECT BOARD (JUNTA)                           │
-│  ┌──────────────────────────────────────────────────────────────────┐  │
-│  │                     EXECUTIVE & PROJECT MANAGER                  │  │
-│  │             Martin Morfe (Gobierno, Decisión, Enlaces)           │  │
-│  └──────────────────┬────────────────────────────┬──────────────────┘  │
-│                     │                            │                     │
-│  ┌──────────────────┴─────────────┐    ┌─────────┴──────────────────┐  │
-│  │           SENIOR USER          │    │       SENIOR SUPPLIER      │  │
-│  │   Cristian Contreras & Diana   │    │  Esteban Guillermo Morales │  │
-│  │   Castaño (Voz del Estudiante) │    │  (Arquitecto de Solución)  │  │
-│  └────────────────────────────────┘    └────────────────────────────┘  │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │
-    ┌───────────────────────────────┴───────────────────────────────┐
-    │                 EQUIPOS DE ENTREGA ESPECIALIZADA              │
-    │  ┌─────────────────────────┐     ┌─────────────────────────┐  │
-    │  │     BACKEND & DATA      │     │  FULL STACK & AI FLOW   │  │
-    │  │   Juan David Villegas   │     │  Harol Medina & Heiner  │  │
-    │  │  (Ingestión & Chunking) │     │  Godoy (RAG / Prompts)  │  │
-    │  └─────────────────────────┘     └─────────────────────────┘  │
-    │  ┌─────────────────────────┐     ┌─────────────────────────┐  │
-    │  │      FRONTEND & UI      │     │    DEVOPS & CLOUD QA    │  │
-    │  │   Cristian Contreras &  │     │  Ivan Hernandez (OCI /  │  │
-    │  │  Diana Castaño (Web App)│     │  Testing / Despliegue)  │  │
-    │  └─────────────────────────┘     └─────────────────────────┘  │
-    └───────────────────────────────────────────────────────────────┘
+                               ┌─────────────────────────────────────────┐
+                               │       COORDINACIÓN Y GOBIERNO PM        │
+                               │          MARTIN MORFE (PM)              │
+                               │  Decisiones, Facilitación y Entregables │
+                               └────────────────────┬────────────────────┘
+                                                    │
+             ┌──────────────────────────────────────┴──────────────────────────────────────┐
+             ▼                                                                             ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                           PROJECT BOARD COLEGIADO Y DEMOCRÁTICO (POR DIMENSIONES)                               │
+│                                                                                                                 │
+│ ┌──────────────────────┐ ┌──────────────────────┐ ┌──────────────────────┐ ┌─────────────────┐ ┌──────────────┐ │
+│ │  DIMENSIÓN 1: ARQ.   │ │ DIMENSIÓN 2: BACKEND │ │  DIMENSIÓN 3: FULL   │ │ DIMENSIÓN 4: UI │ │ DIMENSIÓN 5: │ │
+│ │  DE SOLUCIÓN & IA    │ │    & INGESTIÓN       │ │    STACK & AI FLOW   │ │    & UX/FRONT   │ │ DEVOPS & QA  │ │
+│ │  Esteban Guillermo   │ │  Juan David Villegas │ │ Harol Medina Zárate  │ │ Cristian        │ │ Ivan         │ │
+│ │  Morales Velazquez   │ │  Anaya               │ │ Heiner Godoy Zamora  │ │ Contreras &     │ │ Hernandez    │ │
+│ │                      │ │                      │ │                      │ │ Diana Castaño   │ │              │ │
+│ └──────────────────────┘ └──────────────────────┘ └──────────────────────┘ └─────────────────┘ └──────────────┘ │
+└───────────────────────────────────────────────────┬─────────────────────────────────────────────────────────────┘
+                                                    │
+                                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   NIVEL OPERATIVO / SPRINT DELIVERY                                             │
+│       Ejecución colaborativa de paquetes de trabajo (Work Packages) por los 8 integrantes del equipo            │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-| Rol PRINCE2 | Integrante Asignado | Responsabilidad Primaria |
-| :--- | :--- | :--- |
-| **Executive / Project Manager** | **Martin Morfe** | Responsable final de la viabilidad del proyecto, toma de decisiones estratégicas, gestión de tolerancias, entrega de las 4 tareas en No Country y coordinación general. |
-| **Senior Supplier (Autoridad Técnica)** | **Esteban Guillermo Morales Velazquez** | Garantiza la integridad arquitectónica, la robustez de la solución RAG, la viabilidad técnica y el cumplimiento de estándares de código. |
-| **Senior User (Aseguramiento de Usuario)** | **Cristian Contreras & Diana Castaño** | Representan las necesidades pedagógicas del usuario final (estudiantes, docentes, líderes técnicos), validando la usabilidad, claridad didáctica y fidelidad de los formatos. |
-| **Team Manager: Backend & Ingestión** | **Juan David Villegas Anaya** | Ejecución de paquetes de trabajo de extracción documental (PDF, MD, TXT), sanitización de datos y pipelines de segmentación. |
-| **Team Managers: Full Stack & AI** | **Harol Benjamin Medina & Heiner Jair Godoy** | Implementación de la capa de orquestación LLM, diseño de prompts, integración de APIs y conexión de capas de servicio. |
-| **Team Managers: Frontend & Visualización** | **Cristian Contreras & Diana Castaño** | Construcción de interfaces reactivas en Streamlit, visualizadores de flashcards/quizzes y componentes interactivos. |
-| **Team Manager: DevOps & Cloud Assurance** | **Ivan Hernandez** | Provisión de recursos OCI Always Free, seguridad de credenciales (`.pem`), automatización de pruebas unitarias (`pytest`), integración continua y despliegue. |
+### Tabla de Participantes y Mapeo de Roles
+
+| Integrante | Rol Oficial | Dimensión en el Board | Responsabilidades Clave |
+| :--- | :--- | :--- | :--- |
+| **MARTIN MORFE** | **Project Manager** | **Project Management & Gobierno** | Liderazgo del proyecto, facilitador de ceremonias, control de tolerancias, relación con la organización No Country / ONE y entrega de las 4 tareas de la plataforma. |
+| **Esteban Guillermo Morales Velazquez** | **Architect (Software / Solution Architect)** | **Dimensión 1: Arquitectura de Solución** | Definición y custodia de la arquitectura integral, estándares de integración RAG, selección de patrones de diseño y gobernanza de código. |
+| **Juan David Villegas Anaya** | **Backend Developer** | **Dimensión 2: Ingestión & Datos** | Desarrollo de extractores documentales (PDF, Markdown, Texto), sanitización de datos y pipeline de segmentación (*chunking*). |
+| **Harol Benjamin Medina Zárate** | **Full Stack Developer** | **Dimensión 3: Full Stack & Orquestación IA** | Implementación de flujos de orquestación con LLMs, diseño de prompts pedagógicos y lógica de negocio extremo a extremo. |
+| **Heiner Jair Godoy Zamora** | **Full Stack Developer** | **Dimensión 3: Full Stack & Orquestación IA** | Integración de servicios RAG, serialización y validación estricta de esquemas Pydantic y comunicación inter-módulos. |
+| **Cristian Contreras** | **Frontend Developer** | **Dimensión 4: Frontend & Experiencia de Usuario** | Construcción de la interfaz web interactiva en Streamlit, diseño de componentes didácticos y experiencia de usuario para estudiantes. |
+| **Diana Castaño** | **Frontend Developer** | **Dimensión 4: Frontend & Experiencia de Usuario** | Desarrollo de visualizadores interactivos (Flashcards, Quizzes con retroalimentación inmediata, Tutoriales) y diseño CSS responsivo. |
+| **Ivan Hernandez** | **DevOps Engineer** | **Dimensión 5: Cloud OCI, DevOps & QA** | Configuración y custodia de la infraestructura en OCI Always Free (Object Storage/Compute), seguridad de claves, suite de pruebas automatizadas y CI/CD. |
 
 ---
 
-## 2. Justificación Comercial y Propósito (Business Case)
+## 2. Plan Integral de Comunicaciones por Discord
 
-### 2.1 El Problema
-Las instituciones educativas y empresas de tecnología enfrentan una brecha crítica: transformar manuales técnicos complejos en contenidos pedagógicos estructurados consume semanas de trabajo manual especializado.
+Discord es la sede virtual oficial de **NuevaMente**. El servidor se organiza en categorías estructuradas para eliminar el ruido y garantizar máxima fluidez operativa:
 
-### 2.2 La Solución "NuevaMente"
-Plataforma asistida por IA Generativa y arquitectura RAG que automatiza la ingesta, indexación semántica y adaptación de contenido en múltiples formatos didácticos (Flashcards, Quizzes, Tutoriales) con **anclaje garantizado a la fuente técnica** y persistencia en **OCI Object Storage Always Free**.
+### 2.1 Arquitectura de Canales en Discord
 
-### 2.3 Tolerancias del Proyecto (Project Tolerances)
-- **Tolerancia de Costo:** **CERO ($0.00 USD)**. Restricción estricta: bajo ninguna circunstancia se incurrirá en servicios de pago. Todo recurso debe pertenecer a la capa Always Free de OCI o capas gratuitas de APIs.
-- **Tolerancia de Tiempo:** Cumplimiento estricto del hito final de 5 semanas (18 de Octubre de 2026). Desviación permitida: 0 días para la entrega final en plataforma.
-- **Tolerancia de Alcance:** El MVP debe cumplir como mínimo los 8 criterios del Checklist de Evaluación. Los diferenciales (LangGraph, Anki export) se consideran características opcionales (*nice-to-have*).
-- **Tolerancia de Calidad:** Índice de anclaje a fuentes (*Grounding Score*) >= 85% en las evaluaciones pedagógicas.
+```text
+📁 ── INFORMACIÓN GENERAL
+   ├── 📢-anuncios-oficiales     (Solo PM / Avisos de entregas, fechas límites, hitos)
+   ├── 📌-recursos-y-links       (Repositorio GitHub, Drive, Tableros, Documentación)
+   └── 📜-reglas-del-equipo      (DoD, acuerdos de convivencia y políticas)
 
----
+📁 ── ENCUENTRO DIARIO & GESTIÓN
+   ├── ☕-general-daily          (Hilo oficial de la ceremonia Daily y registro asíncrono)
+   └── 💡-ideas-y-sugerencias    (Propuestas de mejora y debate de equipo)
 
-## 3. Análisis de Alternativas Técnicas (Enfoque Flexible y No Definitivo)
+📁 ── DIMENSIONES DE TRABAJO
+   ├── 🧠-arquitectura-e-ia      (Canal de debate para Esteban, Harol, Heiner y Juan David)
+   ├── ⚙️-backend-y-datos        (Canal de trabajo para Juan David, Ivan y Full Stacks)
+   ├── 🎨-frontend-y-ux          (Canal de trabajo para Cristian, Diana y Full Stacks)
+   └── 🚀-devops-cloud-oci       (Canal de trabajo para Ivan, Esteban y PM)
 
-Para garantizar la adaptabilidad frente a contingencias, se establecen alternativas técnicas para cada componente crítico:
+📁 ── CANALES DE VOZ
+   ├── 🔊 Sala de Reuniones (Daily)  (Canal oficial para las Dailies de 15 minutos)
+   ├── 🔊 Pair Programming 1         (Espacio de colaboración técnica y codiseño)
+   └── 🔊 Pair Programming 2         (Espacio de soporte y depuración)
+```
 
-| Componente | Opción Primaria | Alternativa A | Alternativa de Contingencia (Fallback) | Criterio de Decisión para Cambio |
-| :--- | :--- | :--- | :--- | :--- |
-| **Persistencia Cloud** | OCI Object Storage (`oci-sdk`) | OCI Object Storage vía interfaz compatible con S3 (`boto3`) | Persistencia local temporal (`data/oci_local_storage/`) | Si las claves PEM de OCI fallan en entornos locales restringidos, se opera en modo local sin bloquear el desarrollo. |
-| **Modelo Generativo** | Google Gemini 1.5 Flash (Google AI Studio Free) | OpenAI `gpt-4o-mini` | Motor heurístico offline estructurado (sin costo ni latencia de red) | Agotamiento de cuota diaria (Rate Limit 429) o indisponibilidad de API. |
-| **Vector Store** | ChromaDB (Persistente en disco) | FAISS (`faiss-cpu`) | Búsqueda por similitud de coseno con embeddings normalizados | Incompatibilidad de binarios en sistemas operativos específicos. |
-| **Embeddings** | `all-MiniLM-L6-v2` (Sentence-Transformers local) | Google Text-Embedding-004 | TF-IDF / BM25 tokenizado | Consumo elevado de memoria RAM en entornos virtuales ligeros. |
-| **Interfaz de Usuario** | Streamlit | Gradio | API REST con FastAPI + Swagger UI | Si se requiere integración directa con aplicaciones móviles o frontends externos. |
-
----
-
-## 4. Plan de Gestión de Riesgos y Registro de Riesgos (Risk Register)
-
-Se identifican las amenazas potenciales que podrían afectar el costo, plazo o calidad del proyecto, junto con sus estrategias de mitigación preventiva y reactiva:
-
-| ID | Riesgo Identificado | Prob. | Impacto | Severidad | Estrategia Preventiva (Mitigación) | Plan de Contingencia (Reacción) |
-| :---: | :--- | :---: | :---: | :---: | :--- | :--- |
-| **R-01** | **Costos involuntarios en OCI**<br>Activación accidental de recursos pagos fuera de la capa Always Free. | Baja | Crítico | **ALTO** | Configurar presupuestos (*Budgets*) con alerta al llegar a $0.01 USD. Usar únicamente Compartimento restringido a recursos gratuitos. | Eliminación inmediata del recurso mediante OCI CLI / Consola y reversión a persistencia emulada. |
-| **R-02** | **Agotamiento de cuota en APIs LLM**<br>Rate limits (HTTP 429) durante pruebas o la grabación de la demo. | Media | Alto | **ALTO** | Usar Gemini 1.5 Flash optimizado, implementar backoff exponencial con reintentos y caché de respuestas para consultas idénticas. | Conmutación automática a API Key secundaria o al motor heurístico pregrabado de alta fidelidad. |
-| **R-03** | **Alucinaciones o imprecisiones didácticas**<br>El LLM genera conceptos no presentes en el documento técnico. | Media | Alto | **ALTO** | Inyección de contexto RAG con límite estricto de temperatura (<= 0.3), prompts de rol con penalización por invención y cálculo de *grounding score*. | El sistema incluye una advertencia explícita en la UI si el anclaje a la fuente resulta menor a 0.80. |
-| **R-04** | **Incompatibilidad en extracción de PDFs**<br>PDFs escaneados o con texto no extraíble limpiamente. | Media | Medio | **MEDIO** | Arquitectura con extractor dual: `pypdf` como primario y `pymupdf` (fitz) como secundario. | Ofrecer en la UI un cuadro de texto plano para que el usuario pegue el texto directamente si el PDF es ilegible. |
-| **R-05** | **Cuellos de botella en integración del equipo**<br>Desalineación entre ramas de Git o retrasos en dependencias cruzadas. | Media | Medio | **MEDIO** | Contratos de datos tipados con Pydantic fijados desde el Sprint 1. Rama `develop` para integración y `main` protegida para releases. | Sesiones de sincronización técnica (Pair Programming) lideradas por el Solution Architect. |
-| **R-06** | **Fallas de conectividad durante el Video Demo**<br>Cortes de internet durante la grabación del video de YouTube. | Baja | Alto | **MEDIO** | Grabar las tomas de pantalla utilizando los 3 escenarios oficiales precargados en almacenamiento local garantizado. | Reintento de grabación local antes de subir el material a YouTube. |
+### 2.2 Protocolo de Comunicación y Acuerdos de Nivel de Servicio (SLA)
+- **Menciones Responsables:** Usar `@PM`, `@Arquitectura`, `@Backend`, `@Frontend`, `@DevOps` o `@everyone` únicamente para emergencias o bloqueos críticos.
+- **Ventana de Respuesta Asíncrona:** Máximo **4 horas diurnas** para responder consultas en canales de dimensión de trabajo.
+- **Transparencia:** Ninguna decisión técnica o funcional de impacto se tomará por mensajes privados individuales; todo acuerdo se documenta en el canal correspondiente de Discord.
 
 ---
 
-## 5. Estrategia de Entrega por Fases de Gestión (Stages / Sprints)
+## 3. La Ceremonia "Daily": Punto de Encuentro Diario del Equipo
 
-El proyecto se estructura en 5 fases de gestión de 1 semana cada una (PRINCE2 Agile):
+La **Daily** es el corazón operativo del proyecto. No es una instancia de control ni de fiscalización jerárquica; es una **ceremonia ágil de encuentro, sincronización y desbloqueo mutuo**.
 
-- **Fase de Gestión 1 (14 Sep – 20 Sep):** Inicialización, gobierno, repositorio, setup de OCI Always Free y contratos de datos.
-- **Fase de Gestión 2 (21 Sep – 27 Sep):** Entrega del módulo de ingestión, conexión funcional con OCI Object Storage e indexación en ChromaDB.
-- **Fase de Gestión 3 (28 Sep – 04 Oct):** Implementación de cadenas de prompts pedagógicos, validación Pydantic y guardado de resultados JSON en OCI.
-- **Fase de Gestión 4 (05 Oct – 11 Oct):** Conexión de UI en Streamlit, verificación de los 3 escenarios oficiales y pruebas unitarias exhaustivas.
-- **Fase de Gestión 5 (12 Oct – 18 Oct):** Congelamiento de código, producción del video demo (2-3 min) y envío formal de los 4 entregables en No Country.
+### 3.1 Dinámica y Reglas de la Daily
+- **Duración Estricta:** **15 minutos cronometrados** (*Timeboxed*).
+- **Frecuencia:** Diaria de lunes a viernes (horario consensuado en Discord, sugerido 20:00 UTC).
+- **Lugar:** Canal de voz `🔊 Sala de Reuniones (Daily)` con registro paralelo en `#☕-general-daily`.
+- **Modo Asíncrono (Respaldo):** Si algún integrante no puede asistir por motivos de fuerza mayor o compromisos laborales, debe publicar sus respuestas en `#☕-general-daily` antes de la hora de la sesión.
+
+### 3.2 Las 3 Preguntas Clave Contextualizadas para NuevaMente
+Cada participante responde de forma concreta:
+1. **¿Qué logré ayer que contribuyó a los objetivos del Sprint de NuevaMente?**
+   *(Ejemplo: "Juan David: Completé el extractor de PDFs con pypdf y procesa tablas sin errores").*
+2. **¿Qué paquete de trabajo abordaré hoy?**
+   *(Ejemplo: "Diana: Maquetaré el componente de flashcards con CSS para el volteo de tarjetas").*
+3. **¿Tengo algún impedimento, bloqueo o riesgo técnico que requiera apoyo del equipo?**
+   *(Ejemplo: "Ivan: Necesito el OCID del bucket de OCI para terminar la prueba de integración").*
+
+> [!TIP]
+> Si surge un debate técnico profundo que exceda los 2 minutos, el Project Manager o el Arquitecto abrirán un espacio posterior (*parking lot* o sesión de pair programming en canal de voz 2) para no extender la Daily del resto del equipo.
+
+---
+
+## 4. Justificación Comercial (Business Case) y Tolerancias
+
+- **Propósito:** Desarrollar el MVP de un Sistema Inteligente de Adaptación y Generación de Contenido Educativo basado en RAG y OCI Always Free para el Hackathon ONE G10.
+- **Tolerancia de Costo:** **$0.00 USD estrictos**. Uso exclusivo de recursos Always Free en Oracle Cloud y modelos gratuitos (Gemini 1.5 Flash Free Tier).
+- **Tolerancia de Tiempo:** 5 semanas (14 Sep – 18 Oct 2026). Entrega sin demoras para el Demo Day.
+- **Tolerancia de Calidad:** Métrica de anclaje (*grounding score*) >= 85% en las salidas adaptadas.
+
+---
+
+## 5. Plan de Gestión de Riesgos y Mitigaciones
+
+| ID | Riesgo Identificado | Impacto | Estrategia Preventiva | Plan de Contingencia / Reacción |
+| :---: | :--- | :---: | :--- | :--- |
+| **R-01** | **Costos involuntarios en OCI** | Crítico | Presupuestos de OCI configurados con alerta a $0.01 USD. Restricción estricta a recursos Always Free. | Destrucción inmediata vía CLI y reversión automática a almacenamiento emulado local. |
+| **R-02** | **Agotamiento de cuota en LLM APIs** | Alto | Uso de Gemini 1.5 Flash, compresión de prompts y control de reintentos con backoff. | Conmutación en caliente a OpenAI o fallback a motor heurístico offline sin latencia. |
+| **R-03** | **Alucinaciones en contenido didáctico** | Alto | Inyección de fragmentos RAG con temperatura <= 0.3, role prompting pedagógico y score de fidelidad. | Advertencia explícita en la interfaz si el índice de anclaje es < 0.80. |
+| **R-04** | **PDFs con formato no estructurado** | Medio | Extractor dual (`pypdf` + `pymupdf`). | Cuadro de pegado directo de texto plano en la interfaz Streamlit. |
+| **R-05** | **Fallas en la grabación del Video Demo** | Medio | Uso de los 3 escenarios oficiales pre-cargados en entorno local seguro. | Grabación por módulos independientes y ensamblado final en editor de video. |
 
 ---
 
 ## 6. Procedimiento para la Gestión de Cambios (Change Control)
 
-Cualquier miembro del equipo que identifique una oportunidad de mejora o una limitación técnica debe seguir este flujo:
-1. **Registro:** Notificar al Project Manager (Martin Morfe) y al Solution Architect (Esteban Morales).
-2. **Evaluación de Impacto:** Analizar si el cambio afecta las tolerancias de costo ($0), tiempo (5 semanas) o calidad.
-3. **Aprobación en Project Board:** Decisión consensuada en la reunión diaria o semanal.
-4. **Actualización:** Modificación de este plan como "letra viva" y notificación en el canal del equipo.
+1. **Propuesta:** Cualquier integrante presenta la iniciativa en `#💡-ideas-y-sugerencias` o durante la Daily.
+2. **Evaluación de Tolerancias:** El PM (Martin) y el Arquitecto (Esteban) evalúan si no se vulnera la regla de costo $0 ni el plazo del Sprint.
+3. **Acuerdo en el Board Colegiado:** Se vota de forma democrática con los líderes de dimensión.
+4. **Actualización:** El PM actualiza este documento en GitHub y Drive como testimonio de "letra viva".
